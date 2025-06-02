@@ -6,14 +6,14 @@ from .models.petplanner import db
 from sqlalchemy.exc import OperationalError
 import time
 
-def create_app():
+def create_app(config_class=Config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
     db.init_app(app)
 
     with app.app_context():
         for i in range(10):
-            time.sleep(20)
+            time.sleep(5)
             try:
                 db.create_all()
                 break

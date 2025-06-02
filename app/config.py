@@ -13,3 +13,8 @@ class Config:
 
     print("PetPanner")
     print(f"{DB_HOST} - {DB_USER} - {DB_PASSWORD} - {DB_NAME}")
+
+class TestingConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'  # BDD en RAM
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
