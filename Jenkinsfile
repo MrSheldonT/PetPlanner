@@ -22,7 +22,6 @@ pipeline {
         stage('Build and Run Containers') {
             steps {
                 script {
-                    sh 'docker container prune -f'
                     sh 'docker compose down -v'
                     sh 'docker compose up -d --build'
                 }
@@ -60,7 +59,9 @@ pipeline {
 
     post {
         always {
+            sh 'docker stop petplanner-web-1'
             sh 'docker compose down -v'
+            sh 'docker container prune -f'
         }
     }
 }
