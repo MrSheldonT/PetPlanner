@@ -13,7 +13,7 @@ def create_app(config_class=Config):
 
     with app.app_context():
         for i in range(10):
-            time.sleep(5)
+            time.sleep(20)
             try:
                 db.create_all()
                 break

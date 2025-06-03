@@ -1,5 +1,7 @@
 services:
   web:
+    environment:
+      PYTHONPATH: ${PYTHONPATH}
     build: .
     ports:
       - "5000:5000"
