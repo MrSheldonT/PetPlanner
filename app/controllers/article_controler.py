@@ -39,7 +39,7 @@ def get_all_articles():
 def get_my_articles(current_user):
     try:
         articles = db.session.query(Article).filter_by(author_id=current_user.id).all()
-        return jsonify({"message": "List of all articles", "data": [article.to_json() for article in articles]}), 200
+        return jsonify({"message": "List of my articles", "data": [article.to_json() for article in articles]}), 200
     except Exception as e:
         return jsonify({"message": str(e)}), 400
 

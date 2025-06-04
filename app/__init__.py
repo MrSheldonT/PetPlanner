@@ -28,12 +28,14 @@ def create_app(config_class=Config):
     from app.routes.medical_event_route import medical_event
     from app.routes.notification_route import notification
     from app.routes.center_route import center
+    from app.routes.article_route import article
     app.register_blueprint(users, url_prefix="/users")
     app.register_blueprint(allergy, url_prefix="/allergies")
     app.register_blueprint(pets, url_prefix="/pets")
     app.register_blueprint(medical_event, url_prefix="/medical_events")
     app.register_blueprint(notification, url_prefix="/notifications")
     app.register_blueprint(center, url_prefix="/centers")
+    app.register_blueprint(article, url_prefix="/articles")
 
     @app.route("/")
     def index():
